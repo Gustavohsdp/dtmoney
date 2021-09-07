@@ -1,11 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { createServer, Model } from "miragejs";
-import { App } from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createServer, Model } from 'miragejs';
+
+import { App } from './App';
 
 createServer({
   models: {
-    transactions: Model,
+    transaction: Model,
   },
 
   seeds(server) {
@@ -17,38 +18,37 @@ createServer({
           type: 'deposit',
           category: 'Dev',
           amount: 6000,
-          createdAt: new Date('2021-09-06 09:00:26'),
+          createdAt: new Date('2021-08-26 17:00:00'),
         },
         {
           id: 2,
           title: 'Aluguel',
           type: 'withdraw',
           category: 'Casa',
-          amount: 1200,
-          createdAt: new Date('2021-09-10 14:00:26'),
+          amount: 1100,
+          createdAt: new Date('2021-08-24 13:00:00'),
         },
       ],
     })
   },
 
   routes() {
-    this.namespace = "api";
-
-    this.get("/transactions", () => {
-      return this.schema.all('transactions');
+    this.namespace = 'api';
+    this.get('/transactions', () => {
+      return this.schema.all('transaction');
     });
 
-    this.post("/transactions", (schema, request) => {
+    this.post('/transactions', (schema, request) => {
       const data = JSON.parse(request.requestBody);
 
-      return schema.create('transactions', data);
-    })
-  },
+      return schema.create('transaction', data);
+    });
+  }
 });
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
