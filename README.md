@@ -28,7 +28,7 @@
 # :camera: Screenshots
 <div align="center">
    <img src=".github/dtmoney.png">
-   <img src=".github/dtmoney1.png">
+   <img src=".github/dtmoneyy.png">
 </div>
 
 # :rocket: Technologies
